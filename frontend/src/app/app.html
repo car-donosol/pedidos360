@@ -234,6 +234,13 @@
       </svg>
       <h1>Hello, {{ title() }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
+        <button (click)="login()">Login</button>
+        <button (click)="ping()">Probar /api/secure/ping</button>
+      </div>
+      @if (authResult()) {
+        <pre>{{ authResult() }}</pre>
+      }
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
