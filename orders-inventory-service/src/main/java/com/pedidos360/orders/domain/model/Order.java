@@ -28,6 +28,20 @@ public class Order {
         return order;
     }
 
+    public static Order reconstitute(String orderId, String customerId, String branchId,
+                                OrderStatus status, DispatchType dispatchType,
+                                List<OrderItem> items, LocalDateTime createdAt) {
+        Order order = new Order();
+        order.orderId = orderId;
+        order.customerId = customerId;
+        order.branchId = branchId;
+        order.status = status;
+        order.dispatchType = dispatchType;
+        order.items = new ArrayList<>(items);
+        order.createdAt = createdAt;
+        return order;
+    }
+
     public void addItem(String productId, Integer quantity, Double unitPrice) {
         if (this.status != OrderStatus.PAGO_PENDIENTE) {
             throw new InvalidOrderStateException("No se pueden agregar ítems a un pedido que ya no está pendiente de pago.");
@@ -78,6 +92,7 @@ public class Order {
         }
     }
 
+    public LocalDateTime getCreatedAt() { return createdAt; }
     public String getOrderId() { return orderId; }
     public String getCustomerId() { return customerId; }
     public String getBranchId() { return branchId; }
