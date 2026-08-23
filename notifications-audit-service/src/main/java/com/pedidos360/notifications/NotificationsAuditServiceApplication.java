@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class NotificationsAuditServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(NotificationsAuditServiceApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(NotificationsAuditServiceApplication.class, args);
+    }
 }
